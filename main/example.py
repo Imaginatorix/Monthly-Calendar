@@ -19,12 +19,12 @@ b = Calendar_Settings(
 # in resources folder, the format of the names of the images is {order in legend!priority!shortcut name}Description in Legend.png
 
 events = [
-    Event("F", "u", b, custom = -1),
+    Event("F", "u", b, [-1]),
     Event("block", "we", b, [1, 2, 3], custom = ["4"]),
     Event("labeled", "we", b, custom = "Rest day!"),
     Event("labeled", "wd", b, custom = "Work"),
     Event("labeled", "d", b, [21, 28], custom = "Family"),
-    Event("B", "d", b, [13, 19], custom = "Work")
+    Event("B", "d", b, [13, 19])
     ]
 
 a = Monthly_Calendar(b)
