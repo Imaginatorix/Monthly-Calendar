@@ -6,8 +6,9 @@ import time
 @dataclass
 class Calendar_Settings():
     title: str = ""
-    year: int = int(time.strftime('%Y', time.localtime(time.time())))
-    month: int = int(time.strftime('%m', time.localtime(time.time())))
+    utf_difference: int = 0
+    year: int = None
+    month: int = None
     day_start: int = 6 # 0 = Monday... 6 = Sunday
     day_name_length: int = 3
     show_month: bool = True
@@ -17,6 +18,13 @@ class Calendar_Settings():
     message_title: str = None
     message_subtitle: str = None
     allowed_events: tuple = tuple(Find.all_events())
+
+    def __post_init__(self):
+        current_date = time.gmtime(time.time() + (3600 * self.utf_difference))
+        if self.year is None:
+            self.year = int(time.strftime('%Y', current_date))
+        if self.month is None:
+            self.month = int(time.strftime('%m', current_date))
 
 @dataclass
 class Calendar_Month_Style():
