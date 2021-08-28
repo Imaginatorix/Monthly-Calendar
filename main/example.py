@@ -24,12 +24,13 @@ events = [
     Event("labeled", "we", b, custom = "Rest day!"),
     Event("labeled", "wd", b, custom = "Work"),
     Event("labeled", "d", b, [21, 28], custom = "Family"),
-    Event("B", "d", b, [13, 19])
+    Event("B", "d", b, [13, 19]),
+    # Event("labeled", "ms", b, {0: [2]}, custom = "2nd day")
     ]
 
 a = Monthly_Calendar(b)
 a.add_events(events)
-a.save("test2.png")
+a.save("test.png")
 
 
 
